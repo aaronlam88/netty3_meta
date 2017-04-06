@@ -16,3 +16,7 @@
         - Ping to server
         - Send delete file_name
         - Receive Ack
+5. Read Ack
+        - On receiving all chunks of file to be read send Ack success
+        - On not receiving all chinks within timeout of last received chunk send Ack success with last received chunk id
+        - Send Ack fail if read abort
