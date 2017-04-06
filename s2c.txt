@@ -1,0 +1,5 @@
+1. Ping reply
+2. Write Ack
+3. Send file
+4. Delete Act
+5. Redirect
