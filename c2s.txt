@@ -1,5 +1,18 @@
-1. Ping
-2. Get List of Files
-3. Read
-4. Write
-5. Delete
+1. Ping 
+        - Ping server to check conectivity
+2. Read
+        - Send ping to server
+        - Send read log.txt messege to get list of files [File name, locations, file id]
+        - Parse log to discover file of interest, and see its location in cluster
+        - Send read file_name to any server on which file is available
+3. Write
+        - Send ping to server
+        - Create digest of file to be used as file ID, can also be used later to verify validaty of file
+        - Break the file into chunks
+        - Write chunks to server
+        - Receive Ack
+4. Delete
+        - Check if file is available in log
+        - Ping to server
+        - Send delete file_name
+        - Receive Ack
