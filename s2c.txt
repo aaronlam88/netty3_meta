@@ -3,8 +3,8 @@
 2. Write Ack
         - After receiving all chunks of file, update the log on leader
         - Send Ack success
-        - If all chunks not received within time T of receving last chunk send Ack success with last reveived chunk id
-        - Ack fail represents write operation has been aborted and client has to restart write
+        - On not receiving all chunks within timeout of last received chunk send Ack fail with chunk ids not received
+        - Send Ack fail if read abort, with -1 chunk id
 3. Send file
         - See if file is available, else send Ack fail as file not available message
         - Or send file chunks
