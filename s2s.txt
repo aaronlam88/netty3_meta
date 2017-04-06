@@ -1,6 +1,14 @@
 1. Ping
+      - Ping other nodes to see connectivity
 2. Heartbeat
+      - A alive status message with current state of tasks processing
 3. Write
+      - For replication write a file to other nodes
 4. Write Ack
-5. Leader election messeges
-6. Ping reply
+      - Update the log on leader if received whole file
+      - Send Ack success with last reveived chunk id
+      - If chunk id does not match last chunk resend subsequent chunks
+      - Ack fail to abort write operation
+5. Ping reply
+      - Reply to ping message
+6. Leader election messages
