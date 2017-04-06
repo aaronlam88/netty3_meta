@@ -1,5 +1,17 @@
 1. Ping reply
+        - Reply to a ping
 2. Write Ack
+        - After receiving all chunks of file, update the log on leader
+        - Send Ack success
+        - If all chunks not received within time T of receving last chunk send Ack success with last reveived chunk id
+        - Ack fail represents write operation has been aborted and client has to restart write
 3. Send file
-4. Delete Act
+        - See if file is available, else send Ack fail as file not available message
+        - Or send file chunks
+        - Wait for Ack from client and resend chunks if required
+4. Delete Ack
+        - See if file is available, then delete the file
+        - Send Ack success
 5. Redirect
+        - If server has high load of tasks
+        - Send redirect to other node message to client
