@@ -1,0 +1,5 @@
+1. Ping
+2. Get List of Files
+3. Read
+4. Write
+5. Delete
