@@ -1,10 +1,14 @@
+On client initialization 
+                - Send Read log.txt messege to server to get list of files [File name, locations, file id]
+                - Refresh this file at particular interval.
+
 1. Ping 
         - Ping server to check conectivity
 2. Read
         - Send ping to server
-        - Send read log.txt messege to get list of files [File name, locations, file id]
-        - Parse log to discover file of interest, and see its location in cluster
+        - Search in log.txt to find file of interest, and see its location in cluster
         - Send read file_name to any server on which file is available
+        - After receiving file send Read Ack
 3. Write
         - Send ping to server
         - Create digest of file to be used as file ID, can also be used later to verify validaty of file
@@ -18,5 +22,5 @@
         - Receive Ack
 5. Read Ack
         - On receiving all chunks of file to be read send Ack success
-        - On not receiving all chinks within timeout of last received chunk send Ack success with last received chunk id
-        - Send Ack fail if read abort
+        - On not receiving all chunks within timeout of last received chunk send Ack fail with chunk ids not received
+        - Send Ack fail if read abort, with -1 chunk id
