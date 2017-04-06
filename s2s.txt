@@ -7,8 +7,8 @@
 4. Write Ack
       - Update the log on leader if received whole file
       - Send Ack success with last reveived chunk id
-      - If chunk id does not match last chunk resend subsequent chunks
-      - Ack fail to abort write operation
+      - On not receiving all chunks within timeout of last received chunk send Ack fail with chunk ids not received
+      - Send Ack fail if read abort, with -1 chunk id
 5. Ping reply
       - Reply to ping message
 6. Leader election messages
