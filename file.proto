@@ -26,8 +26,10 @@ message Response {
 	required string requestId = 1;// UUID which maps to a client request
 	// optional bool isAck = 2  [default = false];
 	optional bool isSuccess = 2;
+	// if !isSuccess, check payload for missing chunks
 	oneof payload {
 		File file = 3;
-		string missingChunkids = 4;
+		// using array for all missing chunks, cmpe275-class protocol
+		repeated int32 missingChunkids = 4 [packed=true];
 	}
 }
